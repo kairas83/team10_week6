@@ -25,10 +25,8 @@ public class InGameInfo {
 		}
     }
 
-    @Getter @Setter
     private String platformId;
 
-    @Getter @Setter
     private Observer observers;
 
     public String getPlatformId() {
@@ -40,6 +38,5 @@ public class InGameInfo {
 	public Participant[] getParticipants() {
 		return participants;
 	}
-	@Getter @Setter
     private Participant[] participants;
 }
