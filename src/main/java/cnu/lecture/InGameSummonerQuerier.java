@@ -34,11 +34,9 @@ public class InGameSummonerQuerier {
     public String queryGameKey(String summonerName) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
 
-        HttpUriRequest summonerRequest = buildApiHttpRequest(summonerName);
-        HttpResponse summonerResponse = client.execute(summonerRequest);
         Gson summonerInfoGson = new Gson();
         Type mapType = new TypeToken<HashMap<String, SummonerInfo>>(){}.getType();
-        HashMap<String, SummonerInfo> entries = summonerInfoGson.fromJson(new JsonReader(new InputStreamReader(summonerResponse.getEntity().getContent())), mapType);
+        HashMap<String, SummonerInfo> entries = summonerInfoGson.fromJson(new JsonReader(new InputStreamReader(client.execute(buildApiHttpRequest(summonerName)).getEntity().getContent())), mapType);
         String summonerId = entries.get(summonerName).getId();
 
         HttpUriRequest inGameRequest = buildObserverHttpRequest(summonerId);
