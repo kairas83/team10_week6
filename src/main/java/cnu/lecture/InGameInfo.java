@@ -8,7 +8,6 @@ import lombok.Setter;
  */
 public class InGameInfo {
     public static class Observer {
-        @Getter @Setter
         private String encryptionKey;
 
 		public String getEncryptionKey() {
@@ -17,7 +16,6 @@ public class InGameInfo {
     }
 
     public static class Participant {
-        @Getter @Setter
         private String summonerName;
 
 		public String getSummonerName() {
@@ -29,6 +27,8 @@ public class InGameInfo {
 
     private Observer observers;
 
+    private Participant[] participants;
+
     public String getPlatformId() {
 		return platformId;
 	}
@@ -38,5 +38,4 @@ public class InGameInfo {
 	public Participant[] getParticipants() {
 		return participants;
 	}
-    private Participant[] participants;
 }
