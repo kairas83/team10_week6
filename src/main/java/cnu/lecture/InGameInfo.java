@@ -10,11 +10,19 @@ public class InGameInfo {
     public static class Observer {
         @Getter @Setter
         private String encryptionKey;
+
+		public String getEncryptionKey() {
+			return encryptionKey;
+		}
     }
 
     public static class Participant {
         @Getter @Setter
         private String summonerName;
+
+		public String getSummonerName() {
+			return summonerName;
+		}
     }
 
     @Getter @Setter
@@ -23,6 +31,15 @@ public class InGameInfo {
     @Getter @Setter
     private Observer observers;
 
-    @Getter @Setter
+    public String getPlatformId() {
+		return platformId;
+	}
+	public Observer getObservers() {
+		return observers;
+	}
+	public Participant[] getParticipants() {
+		return participants;
+	}
+	@Getter @Setter
     private Participant[] participants;
 }

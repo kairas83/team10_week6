@@ -11,6 +11,14 @@ public class SummonerInfo {
     @Getter @Setter
     private String id;
 
-    @Getter @Setter
+    public String getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Getter @Setter
     private String name;
 }
